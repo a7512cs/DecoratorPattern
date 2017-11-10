@@ -1,0 +1,27 @@
+Decorator pattern 裝飾者模式
+可以動態為一個物件加上功能
+避免一個物件繼承了三個功能，另一個物件又繼承同樣三個功能，造成重複
+
+若使用Strategy pattern 可依需要功能 套用不同的功能達到目的，但限定同類型的功能之間的切換，不能跨類型的選擇
+
+和composite pattern有類似，都有子類別包含父類別，但Decorator pattern只有一個父類別
+
+
+
+
+實作:
+需先有一個實體，再裝上想要的功能：
+如果建立一個基本讀串流檔功能： FileInputStream fin = new FileInputStream(abc.txt)
+如果再建立具有buffering的功能： BufferredInputStream bfin = new BufferredInputStream(fin)
+如果要再加undo功能：PushbackInputStream pbfin = new PushBackInputStream(bfin)
+這樣就完成：具有buffering和undo功能的讀串流檔 功能
+
+
+程式中的public interface Spaghetti
+可不一定要interface 也可放變數改成abstract，但通常使用此方式都會new NormalSpaghetti，因此把Spaghetti直接override，所以在Spaghetti中的變數用到機會不大。
+
+
+優點：
+動態增加功能
+降低class數量
+降低組裝功能之間的耦合
